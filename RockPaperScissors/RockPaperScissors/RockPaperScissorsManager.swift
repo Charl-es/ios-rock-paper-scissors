@@ -8,6 +8,7 @@
 struct RockPaperScissorsManager {
     private var computerCard: RockPaperScissors?
     private var userCard: RockPaperScissors?
+    private(set) var isWinOrLose: Bool = true
     
     private func inputUserNumber() -> Int {
         while true {
@@ -34,9 +35,11 @@ struct RockPaperScissorsManager {
                     computerValue == .rock && userValue == .scissors ||
                     computerValue == .scissors && userValue == .paper {
             print("졌습니다!")
+            isWinOrLose = false
             return
         } else {
             print("이겼습니다!")
+            isWinOrLose = true
             return
         }
     }
